@@ -1,5 +1,5 @@
 pkgname=etcher
-pkgver=1.0.0.11
+pkgver=1.0.0.12
 pkgrel=1
 pkgdesc="Burn images to SD cards & USB drives, safe & easy"
 url="http://www.etcher.io/"
@@ -8,7 +8,7 @@ license=('GitHub Inc.')
 depends=('fuse')
 source=("https://resin-production-downloads.s3.amazonaws.com/etcher/1.0.0-beta.${pkgver/*./}/Etcher-linux-x64.AppImage"
         "Etcher.desktop")
-md5sums=('0758cc7c034802b6f9e0ec20c4bcd3ec'
+md5sums=('6433f751d769453a2bd4f007460d9aed'
          '72b6f038845d37ff7b4efea9ce53bf33')
 
 package() {
