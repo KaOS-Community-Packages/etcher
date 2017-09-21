@@ -1,4 +1,4 @@
-![logo](https://www.etcher.io/static/images/logo.png)
+Etcher
 =====
 Burn images to SD cards &amp; USB drives, safe &amp; easy.
 
@@ -10,4 +10,3 @@ Install:
 ```
 kcp -i etcher
 ```
-![Product](https://www.etcher.io/static/images/product.gif)
