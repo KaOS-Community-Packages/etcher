@@ -1,8 +1,0 @@
-[Desktop Entry]
-Name=Etcher
-Exec=pkexec env DISPLAY=$DISPLAY XAUTHORITY=$XAUTHORITY sh -c "kdesu -d etcher -- sh -c"
-Comment=Burn images to SD cards & USB drives, safe & easy
-Icon=etcher
-Type=Application
-Categories=System;Utility;Archiving;
-Version=0.22
