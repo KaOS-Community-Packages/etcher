@@ -1,26 +1,20 @@
 pkgname=etcher
-pkgver=1.0.0.17
+_realver=1.1.2
+pkgver=${_realver//-/_}
 pkgrel=1
 pkgdesc="Burn images to SD cards & USB drives, safe & easy"
-url="https://www.etcher.io/"
+url="http://www.etcher.io/"
 arch=('x86_64')
-license=('GitHub Inc.')
-depends=('fuse' 'gtk2')
-source=("https://resin-production-downloads.s3.amazonaws.com/etcher/1.0.0-beta${pkgver/*./.}/Etcher-1.0.0-beta${pkgver/*./.}-linux-x64.zip"
-        "Etcher.desktop")
-md5sums=('40e2b620d2aecb87e44c8675f2028d03'
-         '72b6f038845d37ff7b4efea9ce53bf33')
+license=('apache')
+depends=('gtk2' 'libxtst' 'libxss' 'gconf' 'nss' 'alsa-lib')
+optdepends=('libnotify: for notifications'
+	    'speech-dispatcher: for text-to-speech')
+source=("https://github.com/resin-io/etcher/releases/download/v${_realver}/etcher-electron_${_realver}_amd64.deb")
+options=("!strip")
+sha256sums=('45ab555e470b382120923730e607e7a951da4f6d8a4320f0f08a960f8254942b')
 
-prepare() {
-bsdtar -xf Etcher-linux-x64.AppImage
-}
 
 package() {
-    install -dm755 "$pkgdir"/usr/{bin,share/{etcher,licenses/etcher}}
-    install -Dm644 ../Etcher.desktop "$pkgdir/usr/share/applications/Etcher.desktop"
-    install -Dm644 icon.png "${pkgdir}/usr/share/pixmaps/etcher.png"
-    cd "$srcdir/usr/bin/"
-    mv -f LICENSE* "$pkgdir/usr/share/licenses/etcher/"
-    mv -f * "$pkgdir/usr/share/etcher/"
-    ln -s /usr/share/etcher/etcher "${pkgdir}/usr/bin/"
+    cd "$pkgdir"
+    tar xf "$srcdir/data.tar.xz"
 }
